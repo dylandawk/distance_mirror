@@ -54,7 +54,7 @@ void loop() {
     sensorValue = measure.RangeMilliMeter;
     float smoothRange = filter.updateEstimate(sensorValue);
     if(smoothRange > 800) smoothRange = 800;
-    doThing(smoothRange);
+    timerFunction(smoothRange);
 //    Serial.print(", Distance (mm): "); Serial.print(sensorValue); 
 //    Serial.print(", Smooth Distance (mm): "); Serial.print(smoothRange);
   } else {
@@ -65,7 +65,7 @@ void loop() {
   delay(100);
 }
 
-void doThing(float data){
+void timerFunction(float data){
   // if object is within measurement range start timer
 //  Serial.println(sensorValue);
   if(sensorValue > openDistance && sensorValue < maxDistance){
